@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../model/models';
+import { User } from '../model/User';
 import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class UserService {
 
   constructor(private http :HttpClient) { }
 
-  url : string = "https://reqres.in/api/users?page=1";
+  url : string = "https://jsonplaceholder.typicode.com/users";
   getUsers() {
 
-    return this.http.get(this.url);
+    return this.http.get<Observable <User []>>(this.url);
   }
 }
