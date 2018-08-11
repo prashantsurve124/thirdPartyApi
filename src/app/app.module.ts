@@ -1,16 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserService } from './user.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserService } from './user.service';
+import { LoginService } from './login/login.service';
+
+import { LoginComponent } from './login/login.component';
+import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { LoginService } from './login.service';
-import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { LocalStorageHelper } from './common/LocalStorage';
+import { LocalStorageService } from '../../node_modules/ng2-localstorage/dist';
 
 @NgModule({
   declarations: [
@@ -25,9 +29,12 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule
      
   ],
-  providers: [UserService, LoginService],
+  providers: [UserService, LoginService, LocalStorageHelper, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
