@@ -15,7 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { LocalStorageHelper } from './common/LocalStorage';
 import { LocalStorageService } from '../../node_modules/ng2-localstorage/dist';
-
+import { AuthGuard } from './common/auth.guard';
+//import { AuthGuard } from './common/auth.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +33,10 @@ import { LocalStorageService } from '../../node_modules/ng2-localstorage/dist';
     FormsModule,
     ReactiveFormsModule,
     HttpModule
+    
      
   ],
-  providers: [UserService, LoginService, LocalStorageHelper, LocalStorageService],
+  providers: [UserService, LoginService, LocalStorageHelper, LocalStorageService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

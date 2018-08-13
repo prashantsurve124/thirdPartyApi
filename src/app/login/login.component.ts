@@ -3,6 +3,7 @@ import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { LocalStorageHelper } from '../common/LocalStorage';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -29,7 +30,7 @@ export class LoginComponent implements OnInit {
   submit(body :any) {
    this._login.loginUser(body).subscribe(resp => {
     console.log(resp);
-    this._localStorageHelper.setAuthToken("TOKEN",resp.TOKEN);
+    this._localStorageHelper.setAuthToken("TOKEN",resp.token);
     this._router.navigateByUrl('users');
 
    })

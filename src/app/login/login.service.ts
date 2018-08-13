@@ -14,16 +14,19 @@ export class LoginService {
 
    }
 
-loginUser(body): Observable<any>{
+loginUser(data): Observable<any>{
+  let url = 'https://reqres.in/api/login';
+  let body = JSON.stringify(data);
   var header = new Headers();
-  header.append('Access-Control-Allow-Origin', '*');
+        header.append('Access-Control-Allow-Origin', '*');
         header.append("Content-Type", "application/json");
         header.append("accept", "application/json");
+  
         let options = new RequestOptions({ headers: header }); 
-let url = 'https://reqres.in/api/login';
-let data = JSON.stringify(body);
-console.log("data:"+data);
-return this._http.post(url, data, options).pipe(map(resp => resp.json));
+
+console.log("data:"+body);
+return this._http.post(url, body, options).pipe(map(resp => resp.json()));
+//return this._http.post(url,body,options).pipe(map((response) => response.json()))
 }
  
 
