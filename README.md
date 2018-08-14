@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## How to run after cloning into another system
  
-After cloning run following command into project dir:
+After cloning project into local machine, run following command into project dir:
 	`npm install promise-polyfill --save-exact`
 	`ng serve`
 
