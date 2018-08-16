@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from 'ng2-localstorage';
+import { LocalStorageService } from 'ng2-localstorage/dist';
 
 @Injectable()
 export class LocalStorageHelper {
@@ -10,7 +10,7 @@ export class LocalStorageHelper {
     USER_AUTH_TOKEN : string;
 
     setAuthToken(key : any, value : any){
-        this._localStorage.set(key, value);
+        this._localStorage.set(key, JSON.stringify(value));
     }
 
     getAuthToken(key : any) {

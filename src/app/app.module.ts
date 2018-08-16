@@ -14,9 +14,12 @@ import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { LocalStorageHelper } from './common/LocalStorage';
-import { LocalStorageService } from '../../node_modules/ng2-localstorage/dist';
+import { LocalStorageService } from 'ng2-localstorage/dist';
 import { AuthGuard } from './common/auth.guard';
 //import { AuthGuard } from './common/auth.guard';
+import { DataService } from './services/data.service';
+import { AuthloginGuard } from './common/authlogin.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,7 @@ import { AuthGuard } from './common/auth.guard';
     
      
   ],
-  providers: [UserService, LoginService, LocalStorageHelper, LocalStorageService, AuthGuard],
+  providers: [UserService, LoginService, LocalStorageHelper, LocalStorageService, AuthGuard, AuthloginGuard, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
