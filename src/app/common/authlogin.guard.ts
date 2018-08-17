@@ -6,15 +6,17 @@ import { LocalStorageHelper } from './LocalStorage';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AuthloginGuard implements CanActivate {
 
-  constructor(private _localStorage: LocalStorageHelper, private router: Router) {
+  constructor(private _localStorage: LocalStorageHelper, private router: Router ) {
 
   }
+
+
   canActivate() {
     let token = this._localStorage.getAuthToken("TOKEN");
-    if (token == "undefined" || token == null) {
-      this.router.navigate(['/login']);
+    if (token != null) {
+      this.router.navigate(['/dashboard']);
       return false;
     }
     else {
