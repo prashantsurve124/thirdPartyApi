@@ -19,6 +19,8 @@ import { AuthGuard } from './common/auth.guard';
 //import { AuthGuard } from './common/auth.guard';
 import { DataService } from './services/data.service';
 import { AuthloginGuard } from './common/authlogin.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,11 @@ import { AuthloginGuard } from './common/authlogin.guard';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
     
      
   ],

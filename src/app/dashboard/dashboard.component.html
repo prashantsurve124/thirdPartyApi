@@ -1,28 +1,29 @@
-<div *ngIf="rawCrypto">
-  <div id ="crypto-container" *ngFor="let crypto of rawCrypto" >
-   <table class="table">
+  
+  <h1>Cryptocurrency prices(Live)</h1>
+  <div id ="crypto-container" class="table-responsive" *ngIf="rawCrypto" >
+   <table class="table" >
     <thead>
       <th>Rank</th>
       <th>Name</th>
       <th>Price</th>
       <th>Market Cap</th>
       <th>Total Supply</th>
-      <th>Max Supply</th>
-      <th>Percent Change(1h)</th>
-      <th>Percent Change(24h)</th>
+      <!-- <th>Max Supply</th> -->
+      <th>Percent Change%(1h)</th>
+      <th>Percent Change%(24h)</th>
     </thead>
     <tbody>
-      <tr>
+      <tr *ngFor="let crypto of rawCrypto">
         <td>{{crypto.rank}}</td>
         <td>{{crypto.name}}</td>
         <td>{{crypto.quotes.USD.price | currency: 'USD' : true}}</td>
         <td>{{crypto.quotes.USD.market_cap | currency: 'USD' : true}}</td>
         <td>{{crypto.total_supply}}</td>
-        <td>{{crypto.max_supply}}</td>
-        <td class="no-wrap percent-change">{{crypto.quotes.USD.percent_change_1h}}</td>
-        <td>{{crypto.quotes.USD.percent_change_7d}}</td>
+        <!-- <td>{{crypto.max_supply}}</td> -->
+        <td>{{crypto.quotes.USD.percent_change_1h}}</td>
+        <td>{{crypto.quotes.USD.percent_change_24h}}</td>
       </tr>
     </tbody>
    </table>
   </div>
-</div>
+

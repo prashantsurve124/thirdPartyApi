@@ -18,4 +18,8 @@ export class LocalStorageHelper {
             return this._localStorage.get(key);
         return null;
     }
+
+    deleteAuthToken() {
+        this.USER_AUTH_TOKEN = null;
+    }
 }

@@ -3,9 +3,13 @@
     <div class="navbar-expand mr-auto">
       <div class="navbar-nav">
         <a class="nav-item nav-link active" routerLink = 'dashboard'  >Home</a>
+        <a class="nav-item nav-link active" routerLink = 'users'  >User List</a>
         <a class="nav-item nav-link" href="#">About</a>
         <a class="nav-item nav-link" href="#">Contact</a>
-        <a class="nav-item nav-link" style="margin-left: 90ch" routerLink = 'login'>Login</a>
+        <!-- <button class="btn-danger" style="margin-left: 90ch" (click)="logOut()">Log out</button> -->
+        <button type="submit" class="btn btn-default" style="margin-left: 90ch" (click)="onclickButton()">  
+          logout  
+        </button> 
       </div>
     </div>
     <div class="navbar-expand ml-auto navbar-nav">
