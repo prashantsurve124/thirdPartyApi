@@ -1,28 +1,31 @@
 <nav class="navbar navbar-dark bg-dark mb-5">
-    <a class="navbar-brand" href="/">Crypto Market</a>
-    <div class="navbar-expand mr-auto">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link active" routerLink = 'dashboard'  >Home</a>
-        <a class="nav-item nav-link active" routerLink = 'users'  >User List</a>
-        <a class="nav-item nav-link" href="#">About</a>
-        <a class="nav-item nav-link" href="#">Contact</a>
-        <!-- <button class="btn-danger" style="margin-left: 90ch" (click)="logOut()">Log out</button> -->
-        <button type="submit" class="btn btn-default" style="margin-left: 90ch" (click)="onclickButton()">  
+  <a class="navbar-brand" href="/">Crypto Market</a>
+  <div class="navbar-expand mr-auto">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" routerLink='dashboard' *ngIf="isLoggedIn()">Dashboard</a>
+      <a class="nav-item nav-link active" routerLink='users' *ngIf="isLoggedIn()">User List</a>
+      <a class="nav-item nav-link" href="#">About</a>
+      <a class="nav-item nav-link" href="#">Contact</a>
+      <!-- <button class="btn btn-danger" style="margin-left: 90ch" (click)="logOut()" *ngIf="isLoggedIn()">Log out</button> -->
+      <!-- <button type="submit" class="btn btn-default" style="margin-left: 90ch" (click)="onclickButton()">  
           logout  
-        </button> 
-      </div>
+        </button>  -->
     </div>
-    <div class="navbar-expand ml-auto navbar-nav">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="https://github.com" target="_blank">
-          <i class="fa fa-github"></i>
-        </a>
-        <a class="nav-item nav-link" href="https://twitter.com/" target="_blank">
-          <i class="fa fa-twitter"></i>
-        </a>
-        <a class="nav-item nav-link" href="https://medium.com/" target="_blank">
-          <i class="fa fa-medium"></i>
-        </a>
-      </div>
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav">
+    <div class="navbar-nav">
+      <button class="btn btn-danger" (click)="logOut()" *ngIf="isLoggedIn()">
+        <i class="fa fa-sign-out"></i>
+      </button>
+      <a class="nav-item nav-link" href="https://github.com" target="_blank">
+        <i class="fa fa-github"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://twitter.com/" target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a class="nav-item nav-link" href="https://medium.com/" target="_blank">
+        <i class="fa fa-medium"></i>
+      </a>
     </div>
-  </nav>
+  </div>
+</nav>

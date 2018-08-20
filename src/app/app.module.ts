@@ -45,7 +45,16 @@ import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/mate
     
      
   ],
-  providers: [UserService, LoginService, LocalStorageHelper, LocalStorageService, AuthGuard, AuthloginGuard, DataService],
+  providers: [
+    UserService,
+    LoginService, 
+    LocalStorageHelper, 
+    LocalStorageService, 
+    AuthGuard, 
+    AuthloginGuard, 
+    DataService,
+    HeaderComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

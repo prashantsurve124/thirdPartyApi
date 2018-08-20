@@ -3,6 +3,7 @@ import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 import { LocalStorageHelper } from '../common/LocalStorage';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -12,11 +13,12 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
 
   loginform1 : FormGroup;
-
+  
   constructor(private fromBuilder : FormBuilder, 
               private _login : LoginService, 
               private _router : Router, 
-              private _localStorageHelper : LocalStorageHelper) { 
+              private _localStorageHelper : LocalStorageHelper,
+            private _header : HeaderComponent) { 
 
         this.loginform1 = this.fromBuilder.group({'email' : ['', [Validators.required, Validators.email]],
                                                   'password' : ['', [Validators.required]]});
@@ -36,4 +38,5 @@ export class LoginComponent implements OnInit {
 
    })
   }
+
 }

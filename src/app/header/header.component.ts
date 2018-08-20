@@ -9,16 +9,25 @@ import { Router } from '../../../node_modules/@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _local_storage : LocalStorageHelper, private _router : Router) {
+  constructor(private _localStorage: LocalStorageHelper, private _router: Router) {
 
-   }
+  }
 
   ngOnInit() {
-    
+
   }
 
   logOut() {
-    this._local_storage.deleteAuthToken();
-  
+    this._localStorage.deleteAuthToken("TOKEN");
+
   }
+
+  isLoggedIn(): boolean {
+    let token = this._localStorage.getAuthToken("TOKEN");
+    if (token == "undefined" || token == null) {
+      return false;
+    }
+    return true;
+  }
+
 }

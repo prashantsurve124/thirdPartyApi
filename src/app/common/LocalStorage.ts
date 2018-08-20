@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from 'ng2-localstorage/dist';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class LocalStorageHelper {
 
-    constructor(private _localStorage : LocalStorageService){
+    constructor(private _localStorage : LocalStorageService, private _router : Router){
 
     }
     USER_AUTH_TOKEN : string;
@@ -19,7 +20,10 @@ export class LocalStorageHelper {
         return null;
     }
 
-    deleteAuthToken() {
-        this.USER_AUTH_TOKEN = null;
+    deleteAuthToken(key : any) {
+        console.log("Logout user");
+        this._localStorage.remove(key);
+        console.log("TOKEN : " + this._localStorage.get(key));
+        this._router.navigate(['/login']);
     }
 }
